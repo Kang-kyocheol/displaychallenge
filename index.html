@@ -38,6 +38,79 @@
     text-align:center;
     font-weight:700;
 }
+  
+.mainhero .container{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(420px,.9fr);
+  gap:64px;
+  align-items:center;
+}
+
+.hero-copy{
+  position:relative;
+  z-index:2;
+}
+
+.hero-visual{
+  position:relative;
+  min-height:560px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-visual::before{
+  content:"";
+  position:absolute;
+  width:78%;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:
+    radial-gradient(circle,rgba(86,201,255,.18),transparent 62%),
+    radial-gradient(circle at 70% 35%,rgba(155,120,255,.18),transparent 58%);
+  filter:blur(10px);
+}
+
+.hero-visual img{
+  position:relative;
+  z-index:1;
+  width:min(100%,690px);
+  max-height:650px;
+  object-fit:contain;
+  filter:drop-shadow(0 28px 40px rgba(0,0,0,.42));
+  animation:heroFloat 5s ease-in-out infinite;
+}
+
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+}
+
+@media(max-width:1000px){
+  .mainhero .container{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .hero-visual{
+    min-height:400px;
+  }
+
+  .hero-visual img{
+    width:min(92%,620px);
+  }
+}
+
+@media(max-width:560px){
+  .hero-visual{
+    min-height:300px;
+  }
+
+  .hero-visual img{
+    width:100%;
+  }
+}
+
   </style>
  </head>
  <body>
@@ -66,7 +139,9 @@
   <main>
    <section class="hero mainhero">
     <div class="container">
-     <span class="eyebrow">
+
+     <div class="hero-copy">
+<span class="eyebrow">
       2026 DISPLAY CHALLENGE &middot; TEAM PROJECT
      </span>
      <h1>
@@ -93,6 +168,14 @@
        신제욱
       </span>
      </div>
+     </div>
+     <div class="hero-visual" aria-label="세 가지 디스플레이 아이디어 통합 이미지">
+      <img
+       alt="속닥존 디스플레이, ExitFlow, SeeStage Glass를 함께 표현한 통합 이미지"
+       src="images/main-visual.png"
+      />
+     </div>
+
     </div>
    </section>
    <section class="section alt">
@@ -113,7 +196,7 @@
      <div class="projects">
       <a class="project p1" href="sokdakzon.html">
        <div class="project-thumb">
-        <img alt="속닥존 디스플레이 대표 영상 이미지" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('missing-image');" src="images/sokdakzon.png"/>
+        <img alt="속닥존 디스플레이 대표 영상 이미지" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('missing-image');" src="images/sokdakzon.jpg"/>
         <span class="play-badge">
          대표 영상 보기
         </span>
@@ -132,7 +215,7 @@
       </a>
       <a class="project p2" href="exitflow.html">
        <div class="project-thumb">
-        <img alt="ExitFlow 대표 영상 이미지" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('missing-image');" src="images/exitflow.png"/>
+        <img alt="ExitFlow 대표 영상 이미지" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('missing-image');" src="images/exitflow.jpg"/>
         <span class="play-badge">
          대표 영상 보기
         </span>
@@ -151,7 +234,7 @@
       </a>
       <a class="project p3" href="seestage.html">
        <div class="project-thumb">
-        <img alt="SeeStage Glass 대표 영상 이미지" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('missing-image');" src="images/seestage.png"/>
+        <img alt="SeeStage Glass 대표 영상 이미지" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('missing-image');" src="images/seestage.jpg"/>
         <span class="play-badge">
          대표 영상 보기
         </span>
